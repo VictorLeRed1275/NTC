@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+        {% block content %}
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'calendar_new' %}">Calender</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'event_new' %}">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gallery</a>
+                </li>
+            </ul>
+        </div>
+        {% endblock %}

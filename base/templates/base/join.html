@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+        {% block content %}
+        <div class="container">
+            <h2>Membership form</h2>
+            <form method="POST" class="post-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.name|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.cell_number|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.ID_number|as_crispy_field }}
+                    </div>
+                </div>
+                {{ form.PO_box|as_crispy_field }}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.skill_level|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.previous_clubs|as_crispy_field }}
+                    </div>
+                </div>
+                {{ form.terms_and_guidelines|as_crispy_field }}
+                <p><small>Please read the <a href="{% url 'guide' %}">terms and guidelines</a> before you continue</small></p>
+                <button type="submit" class="save btn btn-success">Save</button>
+            </form>
+        </div>
+        {% endblock %}
+        

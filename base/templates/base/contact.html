@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+        {% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Contact us</h2>
+                    <form method="POST" class="post-form">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="save btn btn-success">Save</button>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <div id="mapid" style="height: 100%; width: 100%"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var map = L.map('mapid').setView([-25.483746, 30.985171], 17);
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            marker = new L.marker([-25.483746, 30.985171]);
+            marker.addTo(map)
+                .bindPopup('Nelspruit tennis club')
+                .openPopup();
+          </script>
+        {% endblock %}
+        
