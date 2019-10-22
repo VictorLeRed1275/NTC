@@ -3,16 +3,42 @@
 
         {% block content %}
         <div class="container">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'calendar_new' %}">Calender</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'event_new' %}">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
-                </li>
-            </ul>
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'calendar_new' %}">Calender</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'event_new' %}">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <h2>Recent contacts</h2>
+                    <br/>
+                    {% for contact in contacts %}
+                    <h5>{{ contact.subject }}</h5>
+                    <p><small><b>{{ contact.email }}</b> {{ contact.date_sent }}</small></p>
+                    <p>{{ contact.message }}</p>
+                    {% endfor %}
+                </div>
+                <div class="col-md-5">
+                    <h2>Membership requests</h2>
+                    <br/>
+                    {% for member in members %}
+                    Name: {{ member.name }}<br/>
+                    Email: {{ member.email }}<br/>
+                    Cell: {{ member.cell_number }}<br/>
+                    ID: {{ member.ID_number }}<br/>
+                    PO box: {{ member.PO_box }}<br/>
+                    Previous clubs: {{ member.previous_clubs }}<br/>
+                    Skill level: {{ member.skill_level }}<br/><br/>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         {% endblock %}

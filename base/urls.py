@@ -9,5 +9,7 @@ urlpatterns = [
     path('administration/', views.admin, name='admin'),
     path('calendar/new/', views.calendar_new, name='calendar_new'),
     path('calendar/', views.calendar, name='calendar'),
-    path('event/new/', views.event_new, name='event_new')
+    path('event/new/', views.event_new, name='event_new'),
+    path('event/', views.event, name='event'),
+    path('event/<pk>/remove/', views.event_remove, name='event_remove'),
 ]

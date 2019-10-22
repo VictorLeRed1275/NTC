@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+        {% block content %}
+        <div class="container">
+            <h1>Events</h1>
+            {% for post in posts %}
+            {% if user.is_authenticated %}
+            <a class="btn btn-default fa fa-trash trash-button" href="{% url 'event_remove' pk=post.pk %}"></a>
+            {% endif %}
+            <div>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.start_time }} to {{ post.end_time }}</p>
+                <div class="event-image" style="background-image:url('{{ post.image.url }}')"></div>
+                <p>{{ post.description }}</p>
+                {% empty %}
+                <p>There are no current calendar events sceduled</p>
+                {% endfor %}
+                </div>
+        </div>
+        {% endblock %}

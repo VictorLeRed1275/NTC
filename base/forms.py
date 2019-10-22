@@ -15,7 +15,6 @@ class ContactForm(forms.ModelForm):
         fields = ('email', 'subject', 'message')
 
 class MembershipForm(forms.ModelForm):
-    skill_level = forms.ChoiceField(choices=SKILLS, required=False)
     terms_and_guidelines = forms.BooleanField(required=True)
 
     class Meta:
