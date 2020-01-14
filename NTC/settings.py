@@ -25,7 +25,7 @@ SECRET_KEY = 'xabc!jlvby6iog!u*4aht-ehx^22(ui9tfrso=1#0rqj1pp1p2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -129,3 +129,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = '/administration/'
 LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'burneracount1275@gmail.com'
+EMAIL_HOST_PASSWORD = 'cabi201275'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

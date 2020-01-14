@@ -3,6 +3,7 @@
 
         {% block content %}
         <div class="container">
+            <h1 class="text-center">Administration</h1><br/>
             <div class="row">
                 <div class="col-md-2">
                     <ul class="nav flex-column">
@@ -13,7 +14,7 @@
                             <a class="nav-link" href="{% url 'event_new' %}">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gallery</a>
+                            <a class="nav-link" href="{% url 'gallery_new' %}">Gallery</a>
                         </li>
                     </ul>
                 </div>

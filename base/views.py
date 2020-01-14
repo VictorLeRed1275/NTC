@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
+from django.core.mail import send_mail
+from django.conf import settings
 
 def home(request):
     return render(request, 'base/home.html', {})
@@ -10,7 +12,12 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            subject = post.subject
+            message = post.message
+            email = post.email
+            post.save()
+            send_mail(subject, message, email, [settings.EMAIL_HOST_USER])
             return redirect('home')
     else:
         form = ContactForm()
@@ -54,6 +61,18 @@ def calendar(request):
     return render(request, 'base/calendar.html', {'posts': posts})
 
 @login_required
+def event_remove(request, pk):
+    post = get_object_or_404(Event, pk=pk)
+    post.delete()
+    return redirect('event')
+
+@login_required
+def calendar_remove(request, pk):
+    post = get_object_or_404(Calendar, pk=pk)
+    post.delete()
+    return redirect('calendar')
+
+@login_required
 def event_new(request):
     if request.method == "POST":
         form = EventForm(request.POST, request.FILES)
@@ -68,7 +87,25 @@ def event(request):
     posts = Event.objects.all()
     return render(request, 'base/event.html', {'posts': posts})
 
+@login_required
 def event_remove(request, pk):
     post = get_object_or_404(Event, pk=pk)
     post.delete()
     return redirect('event')
+
+@login_required
+def gallery_new(request):
+    if request.method =="POST":
+        form = GalleryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('gallery')
+    else:
+        form = GalleryForm()
+    return render(request, 'base/gallery_new.html', {'form': form})
+
+def gallery(request):
+    posts = []
+    posts += Event.objects.all()
+    posts += Gallery.objects.all()
+    return render(request, 'base/gallery.html', {'posts': posts})

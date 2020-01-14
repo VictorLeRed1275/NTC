@@ -3,42 +3,59 @@
 
         {% block content %}
         <div class="home-image">
-            <a href="{% url 'member' %}" class="btn btn-secondary btn-join"><h1>Join</h1></a>
+            <a href="{% url 'member' %}" class="btn btn-warning btn-join"><h1>Join</h1></a>
         </div>
         <div class="container text-center">
-            <h1>Why join</h1>
-            <p>Established more than 70 years ago, Nelspruit tennis club is located in the heart of Mbombela city at 
-            Van Reibeeck park sports facilities and the biggest club in Mpumalanga. </p>
-
-            <p>We boast with a total of 9 tennis courts of which 4 is floodlit with a public park as part of the property which 
-            alos includes swimming, korfbal and squash.</p>
-
-            <p>NTC offers Tennis for Everyone, regardless of playing ability. </p>
-
-            <p>Members have access to professional coaching at any of the three coaches.</p>
-
-            <p>Come and join our social play or competative events or should you just want to relax with friends while 
-            having fun on court, NTC is the place in Mbombela to go to. </p>
-
-            <p>We are a family friendly establishment and children are most welcome. </p>
-            <br/>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2><a href="#">Couching</a></h2>
-                    <p>Get professional level couching for people of all skill levels.</p>
+            <div class="bg-light full-length" style="box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);">
+                <h1 class="text-info home-header">Why join</h1>
+                <p>We have a long standing community with over x amount of people and we are completely open to new members</p>
+                <div class="row elements">
+                    <div class="col-sm-6">
+                        <h2><a class="text-danger" href="#">Coaching</a></h2>
+                        <p>Get professional level coaching for people of all skill levels.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2><a class="text-danger" href="#">Stringing</a></h2>
+                        <p>No need to travel far to string up your rackets.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2><a class="text-danger" href="#">Renting</a></h2>
+                        <p>Rent out a few courts for your own private events.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2><a class="text-danger" href="#">Membership</a></h2>
+                        <p>Become a member and get special discounts on tournaments.</p>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <h2><a href="#">Stringing</a></h2>
-                    <p>No need to travel far to string up your rackets.</p>
+            </div>
+            <div class="bg-secondary full-length" style="box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h1 class="text-light home-header">About</h1>
+                        <p>Established more than 70 years ago, Nelspruit tennis club is located in the heart of Mbombela city at 
+                            Van Reibeeck park sports facilities and the biggest club in Mpumalanga.  </p>
+                            
+                        <p>We boast with a total of 9 tennis courts of which 4 are floodlit with a public park as part of the property which 
+                            alos includes swimming, korfbal and squash.</p>
+                            
+                            
+                        <p>NTC offers Tennis for Everyone, regardless of playing ability. </p>
+                            
+                        <p>Members have access to professional coaching at any of the three coaches.</p>
+                            
+                        <p>Come and join our social play or competative events or should you just want to relax with friends while 
+                            having fun on court, NTC is the place in Mbombela to go to. </p>
+                            
+                        <p>We are a family friendly establishment and children are most welcome. </p>
+                    </div>
+                    <div class="col-sm-8"><div class="about-image"></div></div>
                 </div>
-                <div class="col-sm-6">
-                    <h2><a href="#">Renting</a></h2>
-                    <p>Rent out a few courts for your own private events.</p>
-                </div>
-                <div class="col-sm-6">
-                    <h2><a href="#">Membership</a></h2>
-                    <p>Become a member and get special discounts on tournaments.</p>
-                </div>
+            </div>
+            <div class="tour-container">
+                <h1 class="text-light tour">Take a tour</h1>
+                <video autoplay muted loop class="video">
+                    <source src="{% static 'vidoes/tour-video.mp4' %}" type="video/mp4">
+                </video>
             </div>
         </div>
         {% endblock %}

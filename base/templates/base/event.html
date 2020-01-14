@@ -9,7 +9,7 @@
             {% endif %}
             <div>
                 <h3>{{ post.title }}</h3>
-                <p>{{ post.start_time }} to {{ post.end_time }}</p>
+                <p>{{ post.start_time|date:'d M Y' }} to {{ post.end_time|date:'d M Y' }}</p>
                 <div class="event-image" style="background-image:url('{{ post.image.url }}')"></div>
                 <p>{{ post.description }}</p>
                 {% empty %}

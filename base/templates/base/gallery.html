@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+        {% block content %}
+        <div class="container">
+            <h1>Gallery</h1><br/>
+            <div class="row">
+            {% for post in posts %}
+                <div class="col-sm-3 thumbnail">
+                    <div class="gallery-image" style="background-image:url('{{ post.image.url }}')"></div>
+                </div>
+            {% empty %}
+            <p>No images in the gallery yet</p>
+            {% endfor %}
+            </div>
+        </div>
+        {% endblock %}

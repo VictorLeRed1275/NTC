@@ -5,10 +5,10 @@
             <h1>Calendar</h1><br/>
             <div class="row">
             {% for post in posts %}
-                <div class="col-md-3 bg-info card">
-                    <div class="card-header">
+                <div class="col-md-3 bg-light card">
+                    <div class="card-header bg-light">
                         {% if user.is_authenticated %}
-                        <a class="btn btn-default fa fa-trash trash-button" href=""></a>
+                        <a class="btn btn-default fa fa-trash trash-button" href="{% url 'calendar_remove' pk=post.pk %}"></a>
                         {% endif %}
                         <h3>{{ post.title }}</h3>
                         <p>{{ post.start_time|date:'d M Y' }} to {{ post.end_time|date:'d M Y' }}</p>
@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <p class='comment'>{{ post.comments }}</p>
                         {% if post.URL != null %}
-                        <small>Click <a href="{{ post.URL }}">here</a> for more information</small>
+                        <small>Click <a href="{{ post.URL }}" target="_blank">here</a> for more information</small>
                         {% endif %}
                     </div>
                     {% endif %}

@@ -32,3 +32,9 @@ class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = ('title', 'description', 'image', 'start_time', 'end_time')
+
+class GalleryForm(forms.ModelForm):
+
+    class Meta:
+        model = Gallery
+        fields = ('title', 'image')
